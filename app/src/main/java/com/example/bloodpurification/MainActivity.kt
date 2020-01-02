@@ -13,8 +13,6 @@ import com.example.bloodpurification.databinding.ActivityMainBinding
 import com.example.bloodpurification.screens.graph.GraphViewModel
 import com.example.bloodpurification.screens.input.InputViewModel
 import com.example.bloodpurification.screens.start.StartViewModel
-import com.jjoe64.graphview.series.DataPoint
-
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
@@ -38,19 +36,23 @@ class MainActivity : AppCompatActivity() {
         viewModelStart = ViewModelProviders.of(this).get(StartViewModel::class.java)
         viewModelGraph = ViewModelProviders.of(this).get(GraphViewModel::class.java)
 
-        viewModelInput.cEnd.observe(this, Observer<Double> { onInputUpdate() })
+        viewModelInput.graphYSeries.observe(this, Observer {
+            if (viewModelInput.graphYSeries.value == null) {
+                Log.e("MainActivity", "passed graphYSeries is null")
+            } else {
+                viewModelGraph.updateYSeries(viewModelInput.graphYSeries.value!!)
+                viewModelGraph.updateMaxHeight(viewModelInput.maxHeight)
+            }
+        })
 
-    }
-
-    private fun onInputUpdate() {
-
-        val points = arrayOf(
-            DataPoint(0.toDouble(), viewModelInput.cPre.value!!),
-            DataPoint(viewModelInput.tTreatment.value!!, viewModelInput.cPost.value!!),
-            DataPoint(1440.toDouble(), viewModelInput.cEnd.value!!)
-        )
-
-        viewModelGraph.updateSeries(points)
+        viewModelInput.graphZSeries.observe(this, Observer {
+            if (viewModelInput.graphZSeries.value == null) {
+                Log.e("MainActivity", "passed graphZSeries is null")
+            } else {
+                viewModelGraph.updateZSeries(viewModelInput.graphZSeries.value!!)
+                viewModelGraph.updateMaxHeight(viewModelInput.maxHeight)
+            }
+        })
     }
 
     override fun onSupportNavigateUp(): Boolean {

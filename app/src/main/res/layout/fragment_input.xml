@@ -1,156 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".screens.input.InputFragment">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/parametersConstraintLayout"
-            style="@style/LayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/parametersLabel"
-                style="@style/LabelTextStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/parametersText"
-
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-
-            <EditText
-                android:id="@+id/editText2"
-                style="@style/InputTextStyle"
-                android:hint="@string/input2_hint"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/parametersLabel" />
-
-            <EditText
-                android:id="@+id/editText3"
-                style="@style/InputTextStyle"
-                android:hint="@string/input3_hint"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText2" />
-
-            <EditText
-                android:id="@+id/editText4"
-                style="@style/InputTextStyle"
-                android:hint="@string/input4_hint"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText3" />
-
-            <EditText
-                android:id="@+id/editText5"
-                style="@style/InputTextStyle"
-                android:hint="@string/input5_hint"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText4" />
-
-            <EditText
-                android:id="@+id/editText6"
-                style="@style/InputTextStyle"
-                android:hint="@string/input6_hint"
-                android:importantForAutofill="no"
-                android:inputType="numberDecimal"
-
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText5" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/parametersConstraintLayout">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                style="@style/LayoutStyle"
+            <LinearLayout
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/pointsLabel"
-                    style="@style/LabelTextStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pointsText"
-
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:id = "@+id/cPreLabel"
+                    android:text="@string/cPreString"
+                    style = "@style/LabelTextStyle"/>
 
                 <EditText
                     android:id="@+id/editText1"
                     style="@style/InputTextStyle"
                     android:hint="@string/input1_hint"
                     android:importantForAutofill="no"
-                    android:inputType="numberDecimal"
+                    android:inputType="numberDecimal"/>
 
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/pointsLabel"/>
-
-                <EditText
-                    android:id="@+id/editText7"
-                    style="@style/InputTextStyle"
-                    android:hint="@string/input7_hint"
-                    android:importantForAutofill="no"
-                    android:inputType="numberDecimal"
-
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editText1" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/totalVLabel"
+                    android:text="@string/totalVolumeString"
+                    style = "@style/LabelTextStyle"/>
 
                 <EditText
-                    android:id="@+id/editText8"
+                    android:id="@+id/editText2"
                     style="@style/InputTextStyle"
-                    android:hint="@string/input8_hint"
+                    android:hint="@string/input2_hint"
                     android:importantForAutofill="no"
-                    android:inputType="numberDecimal"
+                    android:inputType="numberDecimal"/>
 
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editText7" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/KpcLabel"
+                    android:text="@string/KpcString"
+                    style = "@style/LabelTextStyle"/>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <EditText
+                    android:id="@+id/editText3"
+                    style="@style/InputTextStyle"
+                    android:hint="@string/input3_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/genRateLabel"
+                    android:text="@string/genRateString"
+                    style = "@style/LabelTextStyle"/>
+
+                <EditText
+                    android:id="@+id/editText4"
+                    style="@style/InputTextStyle"
+                    android:hint="@string/input4_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/KavgLabel"
+                    android:text="@string/avgClearanceString"
+                    style = "@style/LabelTextStyle"/>
+
+                <EditText
+                    android:id="@+id/editText5"
+                    style="@style/InputTextStyle"
+                    android:hint="@string/input5_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id = "@+id/timeLabel"
+                    android:text="@string/happyTime"
+                    style = "@style/LabelTextStyle"/>
+
+                <EditText
+                    android:id="@+id/editText6"
+                    style="@style/InputTextStyle"
+                    android:hint="@string/input6_hint"
+                    android:importantForAutofill="no"
+                    android:inputType="numberDecimal"/>
+
+            </LinearLayout>
         </ScrollView>
 
-        <Button
-            android:id="@+id/inputButton"
-            style="@style/ButtonStyle"
-            android:layout_gravity="center"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:text="@string/input_button_text" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/inputButton"
+                style="@style/ButtonStyle"
+                android:layout_gravity="center"
+                android:text="@string/input_button_text"/>
+
+        </LinearLayout>
+    </LinearLayout>
 </layout>
